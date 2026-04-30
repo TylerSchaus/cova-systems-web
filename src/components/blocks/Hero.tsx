@@ -54,7 +54,7 @@ export default function Hero() {
       onComplete: () => {
         const scrollConfig = {
           trigger: sectionRef.current,
-          start: "bottom 40%",
+          start: isMobile ? "bottom 40%" : "bottom bottom",
           end: "bottom -20%",
           scrub: true,
         };
