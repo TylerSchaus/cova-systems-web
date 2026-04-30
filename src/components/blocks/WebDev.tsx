@@ -37,9 +37,9 @@ const features = [
 
 const differentiators = [
   { icon: Zap, label: "Live in 14 days" },
+  { icon: ShieldCheck, label: "No lock-in contracts" },
   { icon: Code2, label: "You own the code" },
   { icon: Globe, label: "You own the domain" },
-  { icon: ShieldCheck, label: "No lock-in contracts" },
 ];
 
 export default function WebDev() {
@@ -51,6 +51,7 @@ export default function WebDev() {
   const stripRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const isMobile = window.innerWidth < 768;
     const c1 = card1Ref.current;
     const c2 = card2Ref.current;
     const c3 = card3Ref.current;
@@ -58,6 +59,7 @@ export default function WebDev() {
 
     if (!c1 || !c2 || !c3 || !wrapper) return;
 
+    if (!isMobile) {
     const lockHeight = () => {
       wrapper.style.height = c1.offsetHeight + "px";
     };
@@ -88,7 +90,7 @@ export default function WebDev() {
           // Pin the entire section so both left and right columns stay static
           trigger: sectionRef.current,
           scroller: document.documentElement,
-          start: "top -25%",
+          start: "top top",
           end: "+=1300",
           pin: true,
           pinSpacing: true,
@@ -142,6 +144,7 @@ export default function WebDev() {
       window.removeEventListener("resize", lockHeight);
       ctx.revert();
     };
+    }
   }, []);
 
   return (
@@ -176,7 +179,7 @@ export default function WebDev() {
           </div>
 
           {/* Right — cards with stacking animation */}
-          <div ref={cardsWrapperRef} className="relative flex-1 max-md:w-full">
+          <div ref={cardsWrapperRef} className="relative flex-1 max-md:w-full max-md:flex max-md:flex-col max-md:gap-4">
             <div
               ref={card1Ref}
               className="relative overflow-hidden rounded-2xl bg-white px-7 py-6 shadow-md"
@@ -240,20 +243,32 @@ export default function WebDev() {
         </div>
 
         {/* Differentiator strip */}
-        <div ref={stripRef} className="rounded-2xl bg-white px-8 py-5 max-md:px-4 max-md:py-4">
-          <div className="flex items-center justify-center divide-x divide-gray-200 max-md:grid max-md:grid-cols-2 max-md:gap-3 max-md:divide-x-0 max-md:w-full">
-            {differentiators.map((item) => {
-              const Icon = item.icon;
-              return (
-                <div
-                  key={item.label}
-                  className="flex items-center gap-2 px-8 text-sm text-gray-600 first:pl-0 last:pr-0 max-md:px-0 max-md:justify-center max-md:flex max-md:items-center max-md:gap-2 max-md:w-full"
-                >
-                  <Icon className="h-4 w-4 flex-shrink-0 text-brand" strokeWidth={1.75} />
-                  <span>{item.label}</span>
-                </div>
-              );
-            })}
+        <div ref={stripRef} className="rounded-2xl bg-white px-8 py-5 max-md:px-4 max-md:py-4 max-md:mb-8">
+          <div className="flex items-center justify-center divide-x divide-gray-200 max-md:flex max-md:flex-row max-md:gap-0 max-md:divide-x-0 max-md:w-full">
+            <div className="md:contents max-md:flex max-md:w-full max-md:gap-4">
+              <div className="max-md:flex max-md:flex-col max-md:gap-3 max-md:flex-1 md:contents">
+                {differentiators.slice(0, 2).map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <div key={item.label} className="flex items-center gap-2 px-8 text-sm text-gray-600 first:pl-0 max-md:px-0 max-md:justify-start">
+                      <Icon className="h-4 w-4 flex-shrink-0 text-brand" strokeWidth={1.75} />
+                      <span>{item.label}</span>
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="max-md:flex max-md:flex-col max-md:gap-3 max-md:flex-1 md:contents">
+                {differentiators.slice(2).map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <div key={item.label} className="flex items-center gap-2 px-8 text-sm text-gray-600 last:pr-0 max-md:px-0 max-md:justify-start">
+                      <Icon className="h-4 w-4 flex-shrink-0 text-brand" strokeWidth={1.75} />
+                      <span>{item.label}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
       </div>

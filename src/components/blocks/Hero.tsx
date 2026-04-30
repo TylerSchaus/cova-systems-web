@@ -89,7 +89,7 @@ export default function Hero() {
       gsap.set(cardBottomRightRef.current, { width: "56%", right: "2%", bottom: "0px" });
       gsap.set(orbRef.current, { width: "220px", height: "220px", top: "8%", left: "50%", xPercent: -50, right: "auto" });
       gsap.set(blurbLeftRef.current, { top: "0%", left: "0%" });
-      gsap.set(blurbRightRef.current, { bottom: "5%", right: "0%" });
+      gsap.set(blurbRightRef.current, { bottom: "-4%", right: "-2%" });
     }
 
     // Entrance timeline
@@ -127,24 +127,24 @@ export default function Hero() {
           <p ref={subheadlineRef} className="mb-8 text-lg leading-relaxed text-gray-500 max-md:text-base">
             We build websites, manage your Google presence, and automate your follow-ups — so you can stay focused on the job.
           </p>
-          <div ref={ctaRef} className="mb-8 flex items-center gap-3 max-md:flex-col max-md:w-full">
+          <div ref={ctaRef} className="mb-8 flex items-center gap-3 max-md:w-full">
             <Button
               href="#contact"
               onClick={(e) => { e.preventDefault(); document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" }); }}
               variant="primary"
               size="lg"
-              className="rounded-full max-md:w-full max-md:justify-center"
+              className="rounded-full max-md:w-full max-md:justify-center max-md:text-s max-md:px-4"
             >
-              Get Your Free Demo
+              Free Demo
             </Button>
             <Button
               href="#services"
               onClick={(e) => { e.preventDefault(); document.querySelector("#services")?.scrollIntoView({ behavior: "smooth" }); }}
               variant="outline"
               size="lg"
-              className="rounded-full max-md:w-full max-md:justify-center"
+              className="rounded-full max-md:w-full max-md:justify-center max-md:text-s max-md:px-4"
             >
-              See How It Works
+              Learn More
             </Button>
           </div>
           <div ref={trustRef} className="flex items-center gap-2 text-sm text-gray-400 max-md:justify-center max-md:flex-wrap">
