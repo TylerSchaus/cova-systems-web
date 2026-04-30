@@ -3,6 +3,7 @@ import Hero from "@/components/blocks/Hero";
 import ServicesOverview from "@/components/blocks/ServicesOverview";
 import WebDev from "@/components/blocks/WebDev";
 import GBPCallout from "@/components/blocks/GBPCallout";
+import BuiltForYou from "@/components/blocks/BuiltForYou";
 import Automation from "@/components/blocks/Automation";
 import WhyCova from "@/components/blocks/WhyCova";
 import Pricing from "@/components/blocks/Pricing";
@@ -19,6 +20,7 @@ export default function Home() {
         <ServicesOverview />
         <WebDev />
         <GBPCallout />
+        <BuiltForYou />
         <Automation />
         <WhyCova />
         <Pricing />
