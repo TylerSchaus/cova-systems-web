@@ -243,7 +243,7 @@ export default function WebDev() {
         </div>
 
         {/* Differentiator strip */}
-        <div ref={stripRef} className="rounded-2xl bg-white px-8 py-5 max-md:px-4 max-md:py-4 max-md:mb-8">
+        <div ref={stripRef} className="rounded-2xl bg-white px-8 py-5 mt-16 max-md:px-4 max-md:py-4 max-md:mb-8">
           <div className="flex items-center justify-center divide-x divide-gray-200 max-md:flex max-md:flex-row max-md:gap-0 max-md:divide-x-0 max-md:w-full">
             <div className="md:contents max-md:flex max-md:w-full max-md:gap-4">
               <div className="max-md:flex max-md:flex-col max-md:gap-3 max-md:flex-1 md:contents">
