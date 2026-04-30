@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   description:
     "We build websites, manage your Google presence, and automate your follow-ups — so you can stay focused on the job.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon.png",
   },
 };
 
