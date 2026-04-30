@@ -12,8 +12,8 @@ export default function Footer() {
   return (
     <footer className="bg-[#111111]">
       {/* Top row */}
-      <div className="max-w-7xl mx-auto px-6 py-8">
-        <div className="flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 py-8 max-md:px-4">
+        <div className="flex items-center justify-between max-md:flex-col max-md:items-start max-md:gap-8">
           {/* Logo */}
           <div className="flex items-center gap-2.5">
             <Image
@@ -27,7 +27,7 @@ export default function Footer() {
           </div>
 
           {/* Nav */}
-          <nav className="flex items-start gap-10">
+          <nav className="flex items-start gap-10 max-md:flex-wrap max-md:gap-6">
             {/* Services group */}
             <div className="flex flex-col gap-2">
               <a href="#services" onClick={(e) => handleNavClick(e, "#services")} className="text-sm text-gray-400 hover:text-white transition-colors duration-200">Services</a>
@@ -50,7 +50,7 @@ export default function Footer() {
           {/* Email */}
           <a
             href="mailto:tyler@covasolutions.com"
-            className="text-sm text-gray-400 hover:text-white transition-colors duration-300"
+            className="text-sm text-gray-400 hover:text-white transition-colors duration-300 max-md:border-t max-md:border-white/10 max-md:pt-6 max-md:w-full"
           >
             tyler@covasolutions.com
           </a>
@@ -59,7 +59,7 @@ export default function Footer() {
 
       {/* Bottom row */}
       <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-6 py-5">
+        <div className="max-w-7xl mx-auto px-6 py-5 max-md:px-4">
           <p className="text-xs text-gray-600">© 2026 Cova Systems</p>
         </div>
       </div>

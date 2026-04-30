@@ -101,8 +101,8 @@ export default function Pricing() {
   }, [activeTab]);
 
   return (
-    <section ref={sectionRef} id="pricing" className="bg-surface-muted py-24">
-      <div className="max-w-7xl mx-auto px-6">
+    <section ref={sectionRef} id="pricing" className="bg-surface-muted py-24 max-md:py-16">
+      <div className="max-w-7xl mx-auto px-6 max-md:px-4">
         {/* Header */}
         <motion.div
           className="mb-12 text-center"
@@ -113,7 +113,7 @@ export default function Pricing() {
           <span className="mb-5 inline-block rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-blue-600">
             Pricing
           </span>
-          <h2 className="mb-3 text-4xl font-bold tracking-tight text-gray-900 md:text-5xl">
+          <h2 className="mb-3 text-4xl font-bold tracking-tight text-gray-900 md:text-5xl max-md:text-3xl">
             Straightforward pricing. No surprises.
           </h2>
           <p className="text-base text-gray-400">All prices in CAD.</p>
@@ -126,7 +126,7 @@ export default function Pricing() {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
         >
-          <div className="relative inline-flex items-center gap-1 rounded-xl bg-white p-1.5 shadow-sm">
+          <div className="relative inline-flex items-center gap-1 rounded-xl bg-white p-1.5 shadow-sm max-md:w-full max-md:flex">
             {/* Sliding background indicator */}
             <motion.div
               className="absolute rounded-lg bg-brand"
@@ -145,7 +145,7 @@ export default function Pricing() {
                 key={tab.id}
                 ref={(el) => { tabRefs.current[tab.id] = el; }}
                 onClick={() => setActiveTab(tab.id)}
-                className={`relative z-10 rounded-lg px-6 py-2.5 text-sm font-medium transition-colors duration-200 ${
+                className={`relative z-10 rounded-lg px-6 py-2.5 text-sm font-medium transition-colors duration-200 max-md:flex-1 max-md:px-2 max-md:text-xs ${
                   activeTab === tab.id
                     ? "text-white"
                     : "text-gray-600 hover:text-gray-900"
@@ -159,7 +159,7 @@ export default function Pricing() {
 
         {/* Content card */}
         <motion.div
-          className="rounded-2xl bg-white p-10 overflow-hidden shadow-md"
+          className="rounded-2xl bg-white p-10 overflow-hidden shadow-md max-md:p-5"
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.25 }}
@@ -171,15 +171,15 @@ export default function Pricing() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.2, ease: "easeInOut" }}
-              className="flex items-start gap-12"
+              className="flex items-start gap-12 max-md:flex-col max-md:gap-6"
             >
               {/* Left: headline + bullets */}
-              <div className="flex-1">
-                <h3 className="mb-7 text-3xl font-bold leading-snug text-gray-900">
+              <div className="flex-1 max-md:w-full">
+                <h3 className="mb-7 text-3xl font-bold leading-snug text-gray-900 max-md:text-2xl">
                   {active.headline}
                 </h3>
 
-                <ul className="grid grid-cols-2 gap-x-8 gap-y-3">
+                <ul className="grid grid-cols-2 gap-x-8 gap-y-3 max-md:grid-cols-1">
                   {active.bullets.map((bullet) => (
                     <li
                       key={bullet}
@@ -206,7 +206,7 @@ export default function Pricing() {
               </div>
 
               {/* Right: CTAs */}
-              <div className="flex w-56 flex-shrink-0 flex-col gap-3">
+              <div className="flex w-56 flex-shrink-0 flex-col gap-3 max-md:w-full">
                 <Button
                   href="#contact"
                   onClick={(e) => {

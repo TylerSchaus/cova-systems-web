@@ -42,12 +42,12 @@ export default function FinalCTA() {
   };
 
   return (
-    <section id="contact" className="bg-brand py-24">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="flex items-center gap-16">
+    <section id="contact" className="bg-brand py-24 max-md:py-16">
+      <div className="mx-auto max-w-7xl px-6 max-md:px-4">
+        <div className="flex items-center gap-16 max-md:flex-col max-md:gap-10">
           {/* Left column */}
-          <div className="w-[40%] flex-shrink-0">
-            <h2 className="mb-5 text-4xl font-bold leading-[1.1] tracking-tight text-white md:text-5xl">
+          <div className="w-[40%] flex-shrink-0 max-md:w-full">
+            <h2 className="mb-5 text-4xl font-bold leading-[1.1] tracking-tight text-white md:text-5xl max-md:text-3xl">
               See what we&apos;d build for your business — for free.
             </h2>
             <p className="mb-8 text-lg leading-relaxed text-blue-200">
@@ -56,7 +56,7 @@ export default function FinalCTA() {
             </p>
             <a
               href="mailto:tyler@covasolutions.com"
-              className="inline-flex items-center gap-2 rounded-full border border-white px-6 py-3 text-sm font-medium text-white transition-all duration-300 hover:bg-white hover:text-brand"
+              className="inline-flex items-center gap-2 rounded-full border border-white px-6 py-3 text-sm font-medium text-white transition-all duration-300 hover:bg-white hover:text-brand max-md:w-full max-md:justify-center"
             >
               <Mail className="h-4 w-4" />
               Email Us Directly
@@ -67,7 +67,7 @@ export default function FinalCTA() {
           <div className="flex-1">
             <form
               onSubmit={handleSubmit}
-              className="relative overflow-hidden flex flex-col gap-4 rounded-2xl bg-white p-8 shadow-xl"
+              className="relative overflow-hidden flex flex-col gap-4 rounded-2xl bg-white p-8 shadow-xl max-md:p-5"
             >
               <div className="absolute top-0 left-0 right-0 h-[3px] rounded-t-2xl bg-gradient-to-r from-[#0066FF] via-[#0551ef] to-[#054bec]" />
 
@@ -76,7 +76,7 @@ export default function FinalCTA() {
                 <p className="text-xs text-gray-400">Reach out for a free consultation or to book a demo.</p>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-4 max-md:grid-cols-1">
                 <div className="flex flex-col gap-1">
                   <label className={labelClasses}>Name</label>
                   <input
@@ -101,7 +101,7 @@ export default function FinalCTA() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-4 max-md:grid-cols-1">
                 <div className="flex flex-col gap-1">
                   <label className={labelClasses}>Business Name</label>
                   <input

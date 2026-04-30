@@ -88,7 +88,7 @@ export default function WebDev() {
           // Pin the entire section so both left and right columns stay static
           trigger: sectionRef.current,
           scroller: document.documentElement,
-          start: "top top",
+          start: "top -25%",
           end: "+=1300",
           pin: true,
           pinSpacing: true,
@@ -145,17 +145,17 @@ export default function WebDev() {
   }, []);
 
   return (
-    <div className="overflow-hidden">
-    <section ref={sectionRef} id="websites" className="bg-surface-muted pb-24 pt-30">
+    <div className="overflow-hidden max-md:overflow-visible max-md:pb-8">
+    <section ref={sectionRef} id="websites" className="bg-surface-muted pb-24 pt-30 max-md:pt-16 max-md:pb-8 max-md:mb-0">
       <div className="max-w-7xl mx-auto px-6">
         {/* Main content: split layout */}
-        <div className="flex items-start gap-16 mb-12">
+        <div className="flex items-start gap-16 mb-12 max-md:flex-col max-md:gap-8 max-md:mb-8">
           {/* Left */}
-          <div className="w-[38%] flex-shrink-0 pt-2">
-            <span className="mb-5 inline-block rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-blue-600">
+          <div className="w-[38%] flex-shrink-0 pt-2 max-md:w-full max-md:text-center max-md:pt-0">
+            <span className="mb-5 inline-block rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-blue-600 max-md:mx-auto max-md:block max-md:w-fit">
               Websites
             </span>
-            <h2 className="mb-5 text-4xl font-bold leading-[1.1] tracking-tight text-gray-900">
+            <h2 className="mb-5 text-4xl font-bold leading-[1.1] tracking-tight text-gray-900 max-md:text-3xl">
               A website that actually works for your business.
             </h2>
             <p className="mb-7 text-base leading-relaxed text-gray-500">
@@ -176,7 +176,7 @@ export default function WebDev() {
           </div>
 
           {/* Right — cards with stacking animation */}
-          <div ref={cardsWrapperRef} className="relative flex-1">
+          <div ref={cardsWrapperRef} className="relative flex-1 max-md:w-full">
             <div
               ref={card1Ref}
               className="relative overflow-hidden rounded-2xl bg-white px-7 py-6 shadow-md"
@@ -192,7 +192,7 @@ export default function WebDev() {
                 No templates. Every site is designed specifically for your business and your customers.
               </p>
               <div className="mt-4 mx-4 mb-2 w-full overflow-hidden rounded-xl">
-                <img src="/images/graphics/graphic-1.png" alt="" className="w-[75%] max-h-[265px] min-h-[265px] mx-auto object-cover" />
+                <img src="/images/graphics/graphic-1.png" alt="" className="w-[75%] max-md:max-h-[180px] object-contain" />
               </div>
               <p className="text-right text-2xl font-black text-blue-200 mt-1 pr-1">01</p>
             </div>
@@ -212,7 +212,7 @@ export default function WebDev() {
                 Over 70% of your customers will find you on their phone. We design for that first.
               </p>
               <div className="mt-4 mx-4 mb-2 w-full overflow-hidden rounded-xl">
-                <img src="/images/graphics/graphic-2.png" alt="" className="w-[75%] max-h-[265px] min-h-[265px] mx-auto object-cover" />
+                <img src="/images/graphics/graphic-2.png" alt="" className="w-[75%] max-md:max-h-[180px] object-contain" />
               </div>
               <p className="text-right text-2xl font-black text-blue-200 mt-1 pr-1">02</p>
             </div>
@@ -232,7 +232,7 @@ export default function WebDev() {
                 Local SEO baked into every page so you show up when people search for what you do.
               </p>
               <div className="mt-4 mx-4 mb-2 w-full overflow-hidden rounded-xl">
-                <img src="/images/graphics/graphic-3.png" alt="" className="w-[75%] max-h-[265px] min-h-[265px] mx-auto object-cover" />
+                <img src="/images/graphics/graphic-3.png" alt="" className="w-[75%] max-md:max-h-[180px] object-contain" />
               </div>
               <p className="text-right text-2xl font-black text-blue-200 mt-1 pr-1">03</p>
             </div>
@@ -240,14 +240,14 @@ export default function WebDev() {
         </div>
 
         {/* Differentiator strip */}
-        <div ref={stripRef} className="rounded-2xl bg-white px-8 py-5">
-          <div className="flex items-center justify-center divide-x divide-gray-200">
+        <div ref={stripRef} className="rounded-2xl bg-white px-8 py-5 max-md:px-4 max-md:py-4">
+          <div className="flex items-center justify-center divide-x divide-gray-200 max-md:grid max-md:grid-cols-2 max-md:gap-3 max-md:divide-x-0 max-md:w-full">
             {differentiators.map((item) => {
               const Icon = item.icon;
               return (
                 <div
                   key={item.label}
-                  className="flex items-center gap-2 px-8 text-sm text-gray-600 first:pl-0 last:pr-0"
+                  className="flex items-center gap-2 px-8 text-sm text-gray-600 first:pl-0 last:pr-0 max-md:px-0 max-md:justify-center max-md:flex max-md:items-center max-md:gap-2 max-md:w-full"
                 >
                   <Icon className="h-4 w-4 flex-shrink-0 text-brand" strokeWidth={1.75} />
                   <span>{item.label}</span>

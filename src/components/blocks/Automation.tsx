@@ -93,7 +93,7 @@ export default function Automation() {
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
         >
           <div className="absolute top-0 left-0 right-0 h-[3px] rounded-t-2xl bg-gradient-to-r from-[#0066FF] via-[#0551ef] to-[#054bec]" />
-          <div className="flex items-center justify-between gap-8">
+          <div className="flex items-center justify-between gap-8 max-md:flex-col max-md:gap-6">
             <div className="flex-1">
               <div className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-brand px-3 py-1 text-xs font-semibold text-white">
                 <Zap className="h-3 w-3" />
@@ -111,8 +111,8 @@ export default function Automation() {
                 in touch.
               </p>
             </div>
-            <div className="flex-shrink-0 flex flex-col items-end gap-4">
-              <div className="text-right">
+            <div className="flex-shrink-0 flex flex-col items-end gap-4 max-md:items-start max-md:w-full">
+              <div className="text-right max-md:text-left">
                 <p className="text-5xl font-normal tracking-tight text-gray-900">
                   $750
                 </p>
@@ -125,7 +125,7 @@ export default function Automation() {
                   document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
                 }}
                 variant="primary"
-                className="rounded-full px-6 py-2.5 text-sm inline-flex items-center gap-1.5 transition-all duration-300"
+                className="rounded-full px-6 py-2.5 text-sm inline-flex items-center gap-1.5 transition-all duration-300 max-md:w-full max-md:justify-center"
               >
                 Get Started
                 <ArrowRight className="h-3.5 w-3.5" />

@@ -17,15 +17,15 @@ function StarIcon() {
 
 export default function GBPCallout() {
   const sectionRef = useRef<HTMLElement>(null);
-  const inView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const inView = useInView(sectionRef, { once: true, margin: "0px" });
 
   return (
-    <section ref={sectionRef} id="gbp" className="bg-white py-24">
+    <section ref={sectionRef} id="gbp" className="bg-white py-24 max-md:py-16">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center gap-16">
+        <div className="flex items-center gap-16 max-md:flex-col max-md:gap-10">
           {/* Left — copy */}
           <motion.div
-            className="w-[45%] flex-shrink-0"
+            className="w-[45%] flex-shrink-0 max-md:w-full max-md:text-center"
             initial={{ opacity: 0, y: 24 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
@@ -41,7 +41,7 @@ export default function GBPCallout() {
               sees. We set it up right, keep it updated, and make sure your
               reviews and info are always working in your favour.
             </p>
-            <ul className="mb-7 space-y-3">
+            <ul className="mb-7 space-y-3 max-md:text-left">
               {checklist.map((item) => (
                 <li key={item} className="flex items-center gap-3 text-sm text-gray-700">
                   <Check className="h-4 w-4 flex-shrink-0 text-brand" strokeWidth={2.5} />
@@ -49,18 +49,18 @@ export default function GBPCallout() {
                 </li>
               ))}
             </ul>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-gray-600 max-md:text-left">
               <span className="font-semibold text-gray-900">+ $50/month</span>
               , included with any site management plan.
             </p>
           </motion.div>
 
           {/* Right — GBP mockup card + floating badges */}
-          <div className="relative flex-1 flex justify-center">
+          <div className="relative flex-1 flex justify-center max-md:w-full max-md:px-6">
 
             {/* Badge 1 — #1 on Google Maps (top right, outside card) */}
             <motion.div
-              className="absolute top-8 right-0 flex items-center gap-2 rounded-xl bg-white px-3.5 py-2.5 shadow-[0_8px_30px_rgba(0,0,0,0.12)] ring-1 ring-black/8 border border-white"
+              className="absolute top-8 right-0 flex items-center gap-2 rounded-xl bg-white px-3.5 py-2.5 shadow-[0_8px_30px_rgba(0,0,0,0.12)] ring-1 ring-black/8 border border-white max-md:hidden"
               style={{ zIndex: 50 }}
               initial={{ opacity: 0, scale: 0.8, y: 8 }}
               animate={inView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.8, y: 8 }}
@@ -77,7 +77,7 @@ export default function GBPCallout() {
 
             {/* Badge 2 — 247 Profile Views (bottom left, outside card) */}
             <motion.div
-              className="absolute bottom-6 left-0 flex items-center gap-2 rounded-xl bg-white px-3.5 py-2.5 shadow-[0_8px_30px_rgba(0,0,0,0.12)] ring-1 ring-black/8 border border-white"
+              className="absolute bottom-6 left-0 flex items-center gap-2 rounded-xl bg-white px-3.5 py-2.5 shadow-[0_8px_30px_rgba(0,0,0,0.12)] ring-1 ring-black/8 border border-white max-md:hidden"
               style={{ zIndex: 50 }}
               initial={{ opacity: 0, scale: 0.8, y: 8 }}
               animate={inView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.8, y: 8 }}

@@ -54,188 +54,56 @@ export default function Hero() {
       onComplete: () => {
         const scrollConfig = {
           trigger: sectionRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: 1,
+          start: "bottom 40%",
+          end: "bottom -20%",
+          scrub: true,
         };
-
+        if (!isMobile) {
+          scrollTriggers.push(
+            gsap.to(orbRef.current, { y: -40, immediateRender: false, scrollTrigger: scrollConfig })
+          );
+        }
         scrollTriggers.push(
-          gsap.to(orbRef.current, {
-            y: -40,
-            scrollTrigger: scrollConfig,
-          }),
-          gsap.to(cardTopRef.current, {
-            y: -50,
-            rotate: -5,
-            xPercent: -50,
-            scrollTrigger: scrollConfig,
-          }),
-          gsap.to(cardBottomLeftRef.current, {
-            y: -80,
-            rotate: -7,
-            scrollTrigger: scrollConfig,
-          }),
-          gsap.to(cardBottomRightRef.current, {
-            y: -25,
-            rotate: 6,
-            scrollTrigger: scrollConfig,
-          }),
-          gsap.to(blurbLeftRef.current, {
-            rotate: -12,
-            opacity: 0.4,
-            y: -20,
-            scrollTrigger: scrollConfig,
-          }),
-          gsap.to(blurbRightRef.current, {
-            rotate: 12,
-            opacity: 0.4,
-            y: -20,
-            scrollTrigger: scrollConfig,
-          })
+          gsap.to(cardTopRef.current, { y: -50, rotate: -5, xPercent: -50, immediateRender: false, scrollTrigger: scrollConfig }),
+          gsap.to(cardBottomLeftRef.current, { y: -80, rotate: -7, immediateRender: false, scrollTrigger: scrollConfig }),
+          gsap.to(cardBottomRightRef.current, { y: -25, rotate: 6, immediateRender: false, scrollTrigger: scrollConfig }),
+          gsap.to(blurbLeftRef.current, { rotate: -12, opacity: 0.4, y: -20, immediateRender: false, scrollTrigger: scrollConfig }),
+          gsap.to(blurbRightRef.current, { rotate: 12, opacity: 0.4, y: -20, immediateRender: false, scrollTrigger: scrollConfig })
         );
       },
     });
 
-    // Step 1 — set initial hidden states for all elements
-    gsap.set(
-      [
-        eyebrowRef.current,
-        headlineRef.current,
-        subheadlineRef.current,
-        ctaRef.current,
-        trustRef.current,
-      ],
-      { opacity: 0, y: 24 }
-    );
-
-    gsap.set(orbRef.current, { opacity: 0, scale: 0.3 });
-
-    gsap.set(cardTopRef.current, {
-      opacity: 0,
-      y: 40,
-      rotate: -8,
-      xPercent: -50,
-      left: "50%",
-    });
-
-    gsap.set(cardBottomLeftRef.current, {
-      opacity: 0,
-      y: 40,
-      rotate: -10,
-    });
-
-    gsap.set(cardBottomRightRef.current, {
-      opacity: 0,
-      y: 40,
-      rotate: 9,
-    });
-
+    // Initial hidden states
+    gsap.set([eyebrowRef.current, headlineRef.current, subheadlineRef.current, ctaRef.current, trustRef.current], { opacity: 0, y: 24 });
+    if (!isMobile) gsap.set(orbRef.current, { opacity: 0, scale: 0.3 });
+    gsap.set(cardTopRef.current, { opacity: 0, y: 40, rotate: -8, xPercent: -50, left: "50%" });
+    gsap.set(cardBottomLeftRef.current, { opacity: 0, y: 40, rotate: -10 });
+    gsap.set(cardBottomRightRef.current, { opacity: 0, y: 40, rotate: 9 });
     gsap.set(blurbLeftRef.current, { opacity: 0, scale: 0.8, y: 8 });
     gsap.set(blurbRightRef.current, { opacity: 0, scale: 0.8, y: 8 });
 
-    // Step 2 — after hidden states, apply mobile-specific positioning overrides
+    // Mobile position overrides — applied after initial sets
     if (isMobile) {
-      gsap.set(cardTopRef.current, {
-        width: "78%",
-        left: "54%",
-        top: "0px",
-        xPercent: -50,
-      });
-      gsap.set(cardBottomLeftRef.current, {
-        width: "58%",
-        left: "2%",
-        bottom: "0px",
-      });
-      gsap.set(cardBottomRightRef.current, {
-        width: "58%",
-        right: "2%",
-        bottom: "0px",
-      });
-      gsap.set(orbRef.current, {
-        width: "200px",
-        height: "200px",
-        top: "15%",
-        left: "54%",
-        xPercent: -50,
-        right: "auto",
-      });
-      gsap.set(blurbLeftRef.current, {
-        top: "2%",
-        left: "0%",
-      });
-      gsap.set(blurbRightRef.current, {
-        bottom: "2%",
-        right: "0%",
-      });
+      gsap.set(cardTopRef.current, { width: "76%", left: "50%", xPercent: -50, top: "0px" });
+      gsap.set(cardBottomLeftRef.current, { width: "56%", left: "2%", bottom: "0px" });
+      gsap.set(cardBottomRightRef.current, { width: "56%", right: "2%", bottom: "0px" });
+      gsap.set(orbRef.current, { width: "220px", height: "220px", top: "8%", left: "50%", xPercent: -50, right: "auto" });
+      gsap.set(blurbLeftRef.current, { top: "0%", left: "0%" });
+      gsap.set(blurbRightRef.current, { bottom: "5%", right: "0%" });
     }
 
-    // Step 3 — run entrance timeline
+    // Entrance timeline
     tl.to(eyebrowRef.current, { opacity: 1, y: 0, duration: 0.9 }, 0.15)
       .to(headlineRef.current, { opacity: 1, y: 0, duration: 1.05 }, 0.38)
       .to(subheadlineRef.current, { opacity: 1, y: 0, duration: 0.9 }, 0.6)
       .to(ctaRef.current, { opacity: 1, y: 0, duration: 0.9 }, 0.83)
       .to(trustRef.current, { opacity: 1, y: 0, duration: 0.75 }, 1.02)
-      .to(
-        orbRef.current,
-        { opacity: 0.75, scale: 1, duration: 1.8, ease: "power2.out" },
-        1.6
-      )
-      .to(
-        cardTopRef.current,
-        {
-          opacity: 1,
-          y: 0,
-          rotate: -2,
-          xPercent: -50,
-          duration: 1.35,
-          ease: "power2.out",
-        },
-        0.65
-      )
-      .to(
-        cardBottomRightRef.current,
-        {
-          opacity: 1,
-          y: 0,
-          rotate: 3,
-          duration: 1.35,
-          ease: "power2.out",
-        },
-        1.0
-      )
-      .to(
-        cardBottomLeftRef.current,
-        {
-          opacity: 1,
-          y: 0,
-          rotate: -4,
-          duration: 1.35,
-          ease: "power2.out",
-        },
-        1.35
-      )
-      .to(
-        blurbLeftRef.current,
-        {
-          opacity: 1,
-          scale: isMobile ? 0.85 : 1,
-          y: 0,
-          duration: 0.5,
-          ease: "back.out(1.4)",
-        },
-        1.8
-      )
-      .to(
-        blurbRightRef.current,
-        {
-          opacity: 1,
-          scale: isMobile ? 0.85 : 1,
-          y: 0,
-          duration: 0.5,
-          ease: "back.out(1.4)",
-        },
-        1.95
-      );
+      .to(orbRef.current, { opacity: 0.75, scale: 1, duration: 1.8, ease: "power2.out" }, 1.6)
+      .to(cardTopRef.current, { opacity: 1, y: 0, rotate: -2, xPercent: -50, duration: 1.35, ease: "power2.out" }, 0.65)
+      .to(cardBottomRightRef.current, { opacity: 1, y: 0, rotate: 3, duration: 1.35, ease: "power2.out" }, 1.0)
+      .to(cardBottomLeftRef.current, { opacity: 1, y: 0, rotate: -4, duration: 1.35, ease: "power2.out" }, 1.35)
+      .to(blurbLeftRef.current, { opacity: 1, scale: isMobile ? 0.85 : 1, y: 0, duration: 0.5, ease: "back.out(1.4)" }, 1.8)
+      .to(blurbRightRef.current, { opacity: 1, scale: isMobile ? 0.85 : 1, y: 0, duration: 0.5, ease: "back.out(1.4)" }, 1.95);
 
     return () => {
       tl.kill();
@@ -245,36 +113,24 @@ export default function Hero() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden bg-white pt-16 max-md:min-h-0 max-md:pt-20 max-md:pb-12">
-      <div className="max-w-7xl mx-auto flex min-h-[calc(100vh-4rem)] items-center px-6 max-md:flex-col max-md:items-center max-md:min-h-0">
-        {/* Left — 45% */}
-        <div className="w-[45%] flex-shrink-0 py-20 pr-12 max-md:w-full max-md:text-center max-md:pr-0 max-md:py-10 max-md:px-4">
-          <p
-            ref={eyebrowRef}
-            className="mb-5 text-xs font-semibold uppercase tracking-widest text-gray-400"
-          >
+    <section ref={sectionRef} className="relative overflow-hidden bg-white pt-16">
+      <div className="max-w-7xl mx-auto flex min-h-[calc(100vh-4rem)] items-center px-6 max-md:flex-col max-md:min-h-0 max-md:pt-2 max-md:pb-12">
+
+        {/* Text content */}
+        <div className="w-[45%] flex-shrink-0 py-20 pr-12 max-md:w-full max-md:py-8 max-md:pr-0 max-md:text-center">
+          <p ref={eyebrowRef} className="mb-5 text-xs font-semibold uppercase tracking-widest text-gray-400">
             Built for Local Businesses
           </p>
-          <h1
-            ref={headlineRef}
-            className="mb-5 text-5xl font-bold leading-[1.1] tracking-tight text-gray-900 max-md:text-4xl"
-          >
+          <h1 ref={headlineRef} className="mb-5 text-5xl font-bold leading-[1.1] tracking-tight text-gray-900 max-md:text-3xl">
             Digital solutions that work as hard as you do.
           </h1>
-          <p
-            ref={subheadlineRef}
-            className="mb-8 text-lg leading-relaxed text-gray-500"
-          >
-            We build websites, manage your Google presence, and automate your
-            follow-ups — so you can stay focused on the job.
+          <p ref={subheadlineRef} className="mb-8 text-lg leading-relaxed text-gray-500 max-md:text-base">
+            We build websites, manage your Google presence, and automate your follow-ups — so you can stay focused on the job.
           </p>
-          <div ref={ctaRef} className="mb-8 flex items-center gap-3 max-md:flex-col max-md:items-center max-md:w-full">
+          <div ref={ctaRef} className="mb-8 flex items-center gap-3 max-md:flex-col max-md:w-full">
             <Button
               href="#contact"
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
-              }}
+              onClick={(e) => { e.preventDefault(); document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" }); }}
               variant="primary"
               size="lg"
               className="rounded-full max-md:w-full max-md:justify-center"
@@ -282,11 +138,8 @@ export default function Hero() {
               Get Your Free Demo
             </Button>
             <Button
-              href="#how-it-works"
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector("#how-it-works")?.scrollIntoView({ behavior: "smooth" });
-              }}
+              href="#services"
+              onClick={(e) => { e.preventDefault(); document.querySelector("#services")?.scrollIntoView({ behavior: "smooth" }); }}
               variant="outline"
               size="lg"
               className="rounded-full max-md:w-full max-md:justify-center"
@@ -294,11 +147,7 @@ export default function Hero() {
               See How It Works
             </Button>
           </div>
-          <div
-            ref={trustRef}
-            className="flex items-center gap-2 text-sm text-gray-400 max-md:justify-center max-md:flex-wrap"
-          >
-            <Zap className="h-3.5 w-3.5 text-yellow-500" />
+          <div ref={trustRef} className="flex items-center gap-2 text-sm text-gray-400 max-md:justify-center max-md:flex-wrap">
             <span>Live in 14 days</span>
             <span className="mx-1">·</span>
             <span>100% yours</span>
@@ -307,55 +156,40 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right — 55% */}
-        <div className="relative flex-1 self-stretch overflow-visible max-md:w-full max-md:self-auto max-md:px-2 max-md:overflow-hidden">
-          {/* Blue orb — desktop positioning only, mobile handled by GSAP */}
+        {/* Demo stack */}
+        <div className="relative flex-1 self-stretch overflow-visible max-md:w-full max-md:self-auto max-md:overflow-visible max-md:px-3">
+          {/* Blue orb */}
           <div
             ref={orbRef}
-            className="pointer-events-none absolute top-[12%] h-[525px] w-[650px] rounded-full bg-[radial-gradient(circle,#0066FF_0%,#054bec_45%,transparent_70%)] blur-2xl"
+            className="pointer-events-none absolute top-[12%] h-[525px] w-[650px] rounded-full bg-[radial-gradient(circle,#0066FF_0%,#054bec_45%,transparent_70%)] blur-2xl max-md:hidden"
           />
 
           {/* Mockup stack */}
-          <div className="relative z-10 h-[480px] mt-26 w-full max-md:h-[320px] max-md:mt-6 max-md:overflow-hidden">
+          <div className="relative z-10 h-[480px] mt-26 w-full max-md:h-[300px] max-md:mt-8 max-md:overflow-visible">
 
-            {/* demos[1] — bottom left, background */}
+            {/* Bottom left */}
             <div
               ref={cardBottomLeftRef}
               className="absolute shadow-xl ring-1 ring-black/5 rounded-xl"
-              style={{
-                width: "70%",
-                bottom: "0px",
-                left: "0px",
-                zIndex: 10,
-              }}
+              style={{ width: "70%", bottom: "0px", left: "0px", zIndex: 10 }}
             >
               <BrowserFrame src={demos[1].src} alt={demos[1].alt} />
             </div>
 
-            {/* demos[0] — top card, middle ground */}
+            {/* Top center */}
             <div
               ref={cardTopRef}
               className="absolute shadow-2xl ring-1 ring-black/5 rounded-xl"
-              style={{
-                width: "82%",
-                top: "0px",
-                zIndex: 20,
-              }}
+              style={{ width: "82%", top: "0px", zIndex: 20 }}
             >
               <BrowserFrame src={demos[0].src} alt={demos[0].alt} />
             </div>
 
-            {/* demos[2] — bottom right, foreground */}
+            {/* Bottom right */}
             <div
               ref={cardBottomRightRef}
               className="absolute shadow-2xl ring-1 ring-black/5 rounded-xl"
-              style={{
-                width: "70%",
-                bottom: "0px",
-                right: "0px",
-                zIndex: 30,
-                boxShadow: "0 25px 50px -12px rgba(0,0,0,0.18)",
-              }}
+              style={{ width: "70%", bottom: "0px", right: "0px", zIndex: 30, boxShadow: "0 25px 50px -12px rgba(0,0,0,0.18)" }}
             >
               <BrowserFrame src={demos[2].src} alt={demos[2].alt} />
             </div>
