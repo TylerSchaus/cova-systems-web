@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   title: "Cova Systems — Digital Solutions for Local Businesses",
   description:
     "We build websites, manage your Google presence, and automate your follow-ups — so you can stay focused on the job.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export const viewport: Viewport = {
