@@ -26,7 +26,7 @@ const content: Record<TabId, PricingContent> = {
   websites: {
     headline: (
       <span>
-        From <span className="text-brand">$800</span> — fully custom,
+        From <span className="text-brand">$499</span> — fully custom,
         <br />
         built for your business.
       </span>
@@ -44,7 +44,7 @@ const content: Record<TabId, PricingContent> = {
   management: {
     headline: (
       <span>
-        From <span className="text-brand">$150/month</span> — we handle
+        From <span className="text-brand">$99/month</span> — we handle
         <br />
         the maintenance so you don&apos;t have to.
       </span>
@@ -55,14 +55,14 @@ const content: Record<TabId, PricingContent> = {
       "Content changes on request",
       "Domain management",
     ],
-    addon: "+ $50/month to include Google Business Profile management",
+    addon: "+ $49/month to include Google Business Profile management",
     primaryCta: "Learn More",
     secondaryCta: "Get Your Free Demo",
   },
   automation: {
     headline: (
       <span>
-        Full package from <span className="text-brand">$750/month</span>.
+        Full package from <span className="text-brand">$749/month</span>.
       </span>
     ),
     bullets: [

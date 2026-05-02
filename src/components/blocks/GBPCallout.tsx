@@ -50,7 +50,7 @@ export default function GBPCallout() {
               ))}
             </ul>
             <p className="text-sm text-gray-600 max-md:text-left">
-              <span className="font-semibold text-gray-900">+ $50/month</span>
+              <span className="font-semibold text-gray-900">+ $49/month</span>
               , included with any site management plan.
             </p>
           </motion.div>

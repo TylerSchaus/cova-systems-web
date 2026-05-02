@@ -114,7 +114,7 @@ export default function Automation() {
             <div className="flex-shrink-0 flex flex-col items-end gap-4 max-md:items-start max-md:w-full">
               <div className="text-right max-md:text-left">
                 <p className="text-5xl font-normal tracking-tight text-gray-900">
-                  $750
+                  $749
                 </p>
                 <p className="text-sm text-gray-400">per month</p>
               </div>
